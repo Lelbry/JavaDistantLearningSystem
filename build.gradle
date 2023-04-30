@@ -1,0 +1,31 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.11'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'ru.dudkin'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.4'
+	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-webflux-ui
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-webflux-ui', version: '1.6.3'
+	// https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
+	implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.6.0'
+	// https://mvnrepository.com/artifact/org.postgresql/postgresql
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
