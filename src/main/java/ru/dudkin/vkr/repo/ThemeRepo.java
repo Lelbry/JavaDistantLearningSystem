@@ -5,6 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.dudkin.vkr.model.Theme;
 
 @Repository
-public interface ThemesRepo extends JpaRepository<Theme, Long> {
-
+public interface ThemeRepo extends JpaRepository<Theme, Long> {
 }

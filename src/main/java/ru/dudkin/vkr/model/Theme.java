@@ -39,4 +39,8 @@ public class Theme {
 
     @OneToMany(mappedBy = "theme")
     private Set<SubTheme> subThemes;
+
+    public void copy(Theme theme){
+        name = theme.getName();
+    }
 }

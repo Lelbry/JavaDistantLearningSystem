@@ -15,16 +15,18 @@ public class SubTheme {
 
     @ManyToOne
     @JoinColumn(name = "theme_id")
-    private Theme theme;
+    private Theme theme_id;
 
-    /*@OneToMany(mappedBy = "Sub_Theme")
-    private Set<Material> materials;*/
+    @OneToMany(mappedBy = "subTheme")
+    private Set<Material> materials;
 
-    public SubTheme(Long id, String name_SbThemes, Theme theme) {
+    public SubTheme(Long id, String name_SbThemes, Theme theme_id) {
         this.id = id;
         this.name_SbThemes = name_SbThemes;
-        this.theme = theme;
+        this.theme_id = theme_id;
     }
+
+    public void copy(SubTheme subTheme){name_SbThemes = subTheme.getName_SbThemes();}
 
     public SubTheme() {
     }
@@ -45,11 +47,11 @@ public class SubTheme {
         this.name_SbThemes = name_SbThemes;
     }
 
-    public Theme getTheme() {
-        return theme;
+    public Theme getTheme_id() {
+        return theme_id;
     }
 
-    public void setTheme(Theme theme) {
-        this.theme = theme;
+    public void setTheme_id(Theme theme_id) {
+        this.theme_id = theme_id;
     }
 }

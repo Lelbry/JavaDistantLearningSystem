@@ -21,7 +21,7 @@ public class Material {
 
     @ManyToOne
     @JoinColumn(name = "Sub_Theme_id")
-    private SubTheme subThemes;
+    private SubTheme subTheme;
 
     public Material(String numberSubtitleTextRefer, String mainTxt) {
         this.numberSubtitleTextRefer = numberSubtitleTextRefer;
