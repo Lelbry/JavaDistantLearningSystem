@@ -15,15 +15,15 @@ public class SubThemeRestController {
     @Autowired
     public SubThemeRestController(SubThemeService subThemeService){this.subThemeService = subThemeService;}
 
-    @PostMapping("/")
+   /* @PostMapping("/")
     @Operation(summary = "этот метод добавляет Раздел (Под тема)")
-    public void add(@RequestParam int themeId @RequestBody SubTheme subTheme){subThemeService.add(themeId,subTheme);}
+    public void add(@RequestParam long themeId, @RequestBody SubTheme subTheme){subThemeService.add(subTheme,themeId);}*/
 
     @DeleteMapping("/")
     @Operation(summary = "этот метод удаляет Раздел из базы даннах по id")
-    public void delete(@RequestBody long id){subThemeService.remove(id);}
+    public void delete(@RequestParam long id){subThemeService.remove(id);}
 
     @PutMapping("/")
     @Operation(summary = "этот метод позволит редактировать Раздел (под тему) в базе данных по id")
-    public void edit(@RequestParam long id, @RequestBody SubTheme subTheme){subThemeService.edit(id, subTheme);}
+    public void edit(@RequestParam long id, @RequestBody SubTheme subTheme, @RequestParam long themeId){subThemeService.edit(id, subTheme, themeId);}
 }

@@ -16,6 +16,14 @@ public class Theme {
     public Theme() {
     }
 
+    public Set<SubTheme> getSubThemes() {
+        return subThemes;
+    }
+
+    public void setSubThemes(Set<SubTheme> subThemes) {
+        this.subThemes = subThemes;
+    }
+
     public Theme(Long id, String name) {
         this.id = id;
         this.name = name;
@@ -37,7 +45,7 @@ public class Theme {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "theme")
+    @OneToMany(mappedBy = "theme_id")
     private Set<SubTheme> subThemes;
 
     public void copy(Theme theme){

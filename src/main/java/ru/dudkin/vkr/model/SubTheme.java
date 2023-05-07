@@ -51,7 +51,7 @@ public class SubTheme {
         return theme_id;
     }
 
-    public void setTheme_id(Theme theme_id) {
-        this.theme_id = theme_id;
+    public void setTheme_id(Theme theme) {
+        this.theme_id = theme;
     }
 }
