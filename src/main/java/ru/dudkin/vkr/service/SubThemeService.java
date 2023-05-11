@@ -23,22 +23,34 @@ public class SubThemeService {
     }
 
     //При добавлении нужно указывать Тему из таблицы в бд Theme, и название Раздел
-    /*@Transactional
-    public void add(Theme themeId, SubTheme subTheme){
-        subThemeRepo.save(themeId, subTheme);
-    }*/
+    @Transactional
+    public void add(long themeId, SubTheme subTheme){
+        try {
+            Theme theme = themeRepo.findById(themeId).orElseThrow(Exception::new);
+            subTheme.setTheme(theme);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+        subThemeRepo.save(subTheme);
+    }
+    //Вытащить тему по Айдишнику из темы и передать
     public void edit(long id,SubTheme subTheme, Long themeId){
         SubTheme subTheme1 = subThemeRepo.getById(id);
         subTheme1.copy(subTheme);
-        subTheme1.setTheme_id(subTheme1);
+        try {
+            Theme theme = themeRepo.findById(themeId).orElseThrow(Exception::new);
+            subTheme1.setTheme(theme);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         subThemeRepo.save(subTheme1);
     }
 
-    @Transactional
-    public void add(SubTheme subTheme, Long themeId) {
-        Theme theme = themeRepo.getById(themeId);
-        subTheme.setTheme_id(theme);
-        subThemeRepo.save(subTheme);
-    }
+//    @Transactional
+//    public void add(SubTheme subTheme, Long themeId) {
+//        Theme theme = themeRepo.getById(themeId);
+//        subTheme.setTheme(theme);
+//        subThemeRepo.save(subTheme);
+//    }
 }

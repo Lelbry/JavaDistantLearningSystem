@@ -1,5 +1,7 @@
 package ru.dudkin.vkr.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -21,6 +23,7 @@ public class Material {
 
     @ManyToOne
     @JoinColumn(name = "Sub_Theme_id")
+    @JsonBackReference
     private SubTheme subTheme;
 
     public Material(String numberSubtitleTextRefer, String mainTxt) {

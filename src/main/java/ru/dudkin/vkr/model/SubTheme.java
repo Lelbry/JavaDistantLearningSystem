@@ -1,5 +1,8 @@
 package ru.dudkin.vkr.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -14,16 +17,18 @@ public class SubTheme {
     private String name_SbThemes;
 
     @ManyToOne
-    @JoinColumn(name = "theme_id")
-    private Theme theme_id;
+    @JoinColumn(name = "theme")
+    @JsonBackReference
+    private Theme theme;
 
     @OneToMany(mappedBy = "subTheme")
+    @JsonManagedReference
     private Set<Material> materials;
 
-    public SubTheme(Long id, String name_SbThemes, Theme theme_id) {
+    public SubTheme(Long id, String name_SbThemes, Theme theme) {
         this.id = id;
         this.name_SbThemes = name_SbThemes;
-        this.theme_id = theme_id;
+        this.theme = theme;
     }
 
     public void copy(SubTheme subTheme){name_SbThemes = subTheme.getName_SbThemes();}
@@ -47,11 +52,11 @@ public class SubTheme {
         this.name_SbThemes = name_SbThemes;
     }
 
-    public Theme getTheme_id() {
-        return theme_id;
+    public Theme getTheme() {
+        return theme;
     }
 
-    public void setTheme_id(Theme theme) {
-        this.theme_id = theme;
+    public void setTheme(Theme theme) {
+        this.theme = theme;
     }
 }

@@ -1,11 +1,14 @@
 package ru.dudkin.vkr.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @Table(name = "Theme")
 public class Theme {
+    //Id в Бд прописать тип serial
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,8 +27,7 @@ public class Theme {
         this.subThemes = subThemes;
     }
 
-    public Theme(Long id, String name) {
-        this.id = id;
+    public Theme(String name) {
         this.name = name;
     }
 
@@ -45,7 +47,8 @@ public class Theme {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "theme_id")
+    @OneToMany(mappedBy = "theme")
+    @JsonManagedReference
     private Set<SubTheme> subThemes;
 
     public void copy(Theme theme){

@@ -19,7 +19,9 @@ public class ThemeService {
     public List<Theme> getList(){return themeRepo.findAll(); }
 
     @Transactional
-    public void add(Theme theme) {
+    public void add(String themeName) {
+        Theme theme = new Theme();
+        theme.setName(themeName);
         themeRepo.save(theme);
     }
 
@@ -28,10 +30,11 @@ public class ThemeService {
     }
 
     @Transactional
-    public void edit(long id, Theme theme){
-        Theme theme1 = themeRepo.getById(id);
-        theme1.copy(theme);
-        themeRepo.save(theme1);
+    public void edit(long id, String themeNewName){
+        Theme theme = themeRepo.getById(id);
+        theme.setName(themeNewName);
+        theme.copy(theme);
+        themeRepo.save(theme);
     }
 
 }
