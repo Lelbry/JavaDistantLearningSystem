@@ -8,7 +8,6 @@ import java.util.Set;
 @Entity
 @Table(name = "Theme")
 public class Theme {
-    //Id в Бд прописать тип serial
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
