@@ -25,8 +25,7 @@ public class SubTheme {
     @JsonManagedReference
     private Set<Material> materials;
 
-    public SubTheme(Long id, String name_SbThemes, Theme theme) {
-        this.id = id;
+    public SubTheme(String name_SbThemes, Theme theme) {
         this.name_SbThemes = name_SbThemes;
         this.theme = theme;
     }
