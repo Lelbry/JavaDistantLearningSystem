@@ -14,21 +14,20 @@ public class Material {
     @Column(name = "number_Subtitle_Text_Refer")
     private String numberSubtitleTextRefer;
 
-    @Column(name = "main_Txt")
+    @Column(name = "main_Text", columnDefinition = "TEXT", nullable = false)
     private String mainTxt;
 
     public Long getId() {
         return id;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "Sub_Theme_id")
-    @JsonBackReference
-    private SubTheme subTheme;
 
     public Material(String numberSubtitleTextRefer, String mainTxt) {
         this.numberSubtitleTextRefer = numberSubtitleTextRefer;
         this.mainTxt = mainTxt;
+    }
+
+    public Material() {
     }
 
     public void setId(Long id) {
@@ -50,4 +49,5 @@ public class Material {
     public void setMainTxt(String mainTxt) {
         this.mainTxt = mainTxt;
     }
+
 }

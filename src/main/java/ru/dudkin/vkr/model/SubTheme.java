@@ -21,10 +21,6 @@ public class SubTheme {
     @JsonBackReference
     private Theme theme;
 
-    @OneToMany(mappedBy = "subTheme")
-    @JsonManagedReference
-    private Set<Material> materials;
-
     public SubTheme(String name_SbThemes, Theme theme) {
         this.name_SbThemes = name_SbThemes;
         this.theme = theme;
