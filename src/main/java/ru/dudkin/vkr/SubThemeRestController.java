@@ -11,7 +11,7 @@ import ru.dudkin.vkr.service.SubThemeService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sub_theme")
+@RequestMapping("/Взаимодействие с Подтемами")
 public class SubThemeRestController {
     private final SubThemeService subThemeService;
 
@@ -28,7 +28,7 @@ public class SubThemeRestController {
 
     @PutMapping("/")
     @Operation(summary = "этот метод позволит редактировать Раздел (подтему) в базе данных по id")
-    public void edit(@RequestParam long id, @RequestParam String subTheme_New, @RequestParam long themeId){subThemeService.edit(id, subTheme_New, themeId);}
+    public void edit(@RequestParam long id, @RequestBody SubTheme subTheme, @RequestParam long themeId){subThemeService.edit(id, subTheme, themeId);}
 
     @GetMapping("/")
     @Operation(summary = "этот метод выводит список всех Разделов (подтем) которые храняться в базе данных")
