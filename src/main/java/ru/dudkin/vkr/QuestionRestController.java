@@ -19,7 +19,7 @@ public class QuestionRestController {
         this.questionService = questionService;
     }
 
-    @RequestMapping("/")
+    @PostMapping("/")
     @Operation(summary = "Этот метод добавляет вопрос и варианты ответа к нему в БД")
     public void add(@Parameter(description = "Введите вопрос") @RequestParam String question,
                     @Parameter(description = "Введите первый вариант ответа") @RequestParam String ans1,
@@ -29,9 +29,8 @@ public class QuestionRestController {
                     @Parameter(description = "Введите третий вариант ответа") @RequestParam String ans3,
                     @Parameter(description = "Если ответ 3 правильный, введите 1, иначе 0") @RequestParam Boolean ans3Bool,
                     @Parameter(description = "Введите четвертый вариант ответа") @RequestParam String ans4,
-                    @Parameter(description = "Если ответ 3 правильный, введите 1, иначе 0") @RequestParam Boolean ans4Bool) {
-        questionService.add(question, ans1, ans1Bool, ans2, ans2Bool, ans3, ans3Bool, ans4, ans4Bool);
-    }
+                    @Parameter(description = "Если ответ 3 правильный, введите 1, иначе 0") @RequestParam Boolean ans4Bool)
+    {questionService.add(question, ans1, ans1Bool, ans2, ans2Bool, ans3, ans3Bool, ans4, ans4Bool);}
 
     @DeleteMapping("/")
     @Operation(summary = "этот метод удаляет строчку из таблицы Question из базы даннах по id")

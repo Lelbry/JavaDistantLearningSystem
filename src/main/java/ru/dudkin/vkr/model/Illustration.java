@@ -10,7 +10,7 @@ public class Illustration {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "Link")
+    @Column(name = "Link", columnDefinition = "TEXT")
     private String link;
 
     @Column(name = "Subtitle_Text_Refer")

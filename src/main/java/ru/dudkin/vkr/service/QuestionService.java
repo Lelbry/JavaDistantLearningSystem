@@ -13,7 +13,6 @@ import java.util.List;
 public class QuestionService {
     private final QuestionRepo questionRepo;
 
-    @Autowired
     public QuestionService(QuestionRepo questionRepo) {
         this.questionRepo = questionRepo;
     }
