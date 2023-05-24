@@ -88,20 +88,4 @@ public class MaterialRestControllerTests {
         //Данная строка проверяет, существует ли объект Material в базе данных с id, указанным в переменной id.
         assertFalse(materialRepository.existsById(id));
     }
-    //Тест не дописан, нужно использользовать Мок-объект для имитации реального объекта и проверить
-    // сколько раз был вызван метод get
-    /*@Test
-    public void testGetList(){
-            String numberSubtitleTextRefer = "example-number";
-            String mainTxt = "example-main-txt";
-
-            Material material = new Material();
-            material.setNumberSubtitleTextRefer(numberSubtitleTextRefer);
-            material.setMainTxt(mainTxt);
-            materialRepository.save(material);
-
-            materialRestController.get();
-
-            verify(materialRestController.get(), times(1)).get();
-    }*/
 }

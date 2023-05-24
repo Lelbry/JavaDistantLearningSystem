@@ -38,9 +38,6 @@ public class SubThemeService {
         subThemeRepo.save(subTheme);
     }
 
-    //На данный момент получается изменить третий столбец(theme) в Разделе (subTheme), только при наличии
-    //нужного id в таблице Theme, если ж Id не найден то остаётся, то же самое значение, что и было
-    // до этого. Норм? или можно как-то информировать пользователя об этом?
     public void edit(long id,String subThemeNew, Long themeId){
         SubTheme subTheme1 = subThemeRepo.getById(id);
         subTheme1.setName_SbThemes(subThemeNew);
