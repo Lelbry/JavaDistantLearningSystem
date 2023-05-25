@@ -12,14 +12,13 @@ import ru.dudkin.vkr.service.MaterialService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 
 @Transactional
-public class MaterialRestControllerTests {
+public class MaterialTests {
 
     @Autowired
     private MaterialService materialService;

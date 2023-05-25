@@ -33,11 +33,11 @@ public class ThemeRestController {
 
     @DeleteMapping("/")
     @Operation(summary = "этот метод удаляет Тему из базы даннах по id")
-    public void delete(@Parameter(description = "введите Id темы которую нужно удалить") @RequestParam int id){themeService.remove(id);}
+    public void delete(@Parameter(description = "введите Id темы которую нужно удалить") @RequestParam long id){themeService.remove(id);}
 
     @PutMapping("/")
     @Operation(summary = "этот метод позволит редактировать Тему в базе данных по id")
-    public void edit(@Parameter(description = "Укажите Id темы которую вы хотите изменить") @RequestParam int id,
+    public void edit(@Parameter(description = "Укажите Id темы которую вы хотите изменить") @RequestParam long id,
                      @Parameter(description = "Введите новое название для темы") @RequestParam String themeNewName)
     {themeService.edit(id, themeNewName);}
 

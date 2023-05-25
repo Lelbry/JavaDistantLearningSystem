@@ -23,7 +23,14 @@ public class IllustrationService {
         illustration.setSubtitleTextRefer(subtitleRefer);
         illustrationRepo.save(illustration);
     }
-
+    @Transactional
+    public void edit(long id, String link, String subtitleRefer){
+        Illustration illustration = new Illustration();
+        illustration.setId(id);
+        illustration.setLink(link);
+        illustration.setSubtitleTextRefer(subtitleRefer);
+        illustrationRepo.save(illustration);
+    }
     public List<Illustration> getList(){return illustrationRepo.findAll();}
 
     public void remove (long id){illustrationRepo.deleteById(id);}

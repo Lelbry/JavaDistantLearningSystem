@@ -23,13 +23,13 @@ public class QuestionRestController {
     @Operation(summary = "Этот метод добавляет вопрос и варианты ответа к нему в БД")
     public void add(@Parameter(description = "Введите вопрос") @RequestParam String question,
                     @Parameter(description = "Введите первый вариант ответа") @RequestParam String ans1,
-                    @Parameter(description = "Если ответ 1 правильный, введите 1, иначе 0") @RequestParam Boolean ans1Bool,
+                    @Parameter(description = "Если ответ 1 правильный, укажите true, иначе false") @RequestParam Boolean ans1Bool,
                     @Parameter(description = "Введите второй вариант ответа") @RequestParam String ans2,
-                    @Parameter(description = "Если ответ 2 правильный, введите 1, иначе 0") @RequestParam Boolean ans2Bool,
+                    @Parameter(description = "Если ответ 2 правильный, укажите true, иначе false") @RequestParam Boolean ans2Bool,
                     @Parameter(description = "Введите третий вариант ответа") @RequestParam String ans3,
-                    @Parameter(description = "Если ответ 3 правильный, введите 1, иначе 0") @RequestParam Boolean ans3Bool,
+                    @Parameter(description = "Если ответ 3 правильный, укажите true, иначе false") @RequestParam Boolean ans3Bool,
                     @Parameter(description = "Введите четвертый вариант ответа") @RequestParam String ans4,
-                    @Parameter(description = "Если ответ 3 правильный, введите 1, иначе 0") @RequestParam Boolean ans4Bool)
+                    @Parameter(description = "Если ответ 4 правильный, укажите true, иначе false") @RequestParam Boolean ans4Bool)
     {questionService.add(question, ans1, ans1Bool, ans2, ans2Bool, ans3, ans3Bool, ans4, ans4Bool);}
 
     @DeleteMapping("/")
@@ -40,4 +40,18 @@ public class QuestionRestController {
     @GetMapping("/")
     @Operation(summary = "этот метод выводит список всех строк содержащихся в таблице Question которые хранятся в базе данных")
     public List<Question> get(){return questionService.getList();}
+
+    @PutMapping("/")
+    @Operation(summary = "Этот метод редактирует вопрос и варианты ответа к нему в БД")
+    public void edit(@Parameter(description = "укажите Id строки, по которому нужно внести изменения") @RequestParam long id,
+                    @Parameter(description = "Введите вопрос") @RequestParam String question,
+                    @Parameter(description = "Введите первый вариант ответа") @RequestParam String ans1,
+                    @Parameter(description = "Если ответ 1 правильный, укажите true, иначе false") @RequestParam Boolean ans1Bool,
+                    @Parameter(description = "Введите второй вариант ответа") @RequestParam String ans2,
+                    @Parameter(description = "Если ответ 2 правильный, укажите true, иначе false") @RequestParam Boolean ans2Bool,
+                    @Parameter(description = "Введите третий вариант ответа") @RequestParam String ans3,
+                    @Parameter(description = "Если ответ 3 правильный, укажите true, иначе false") @RequestParam Boolean ans3Bool,
+                    @Parameter(description = "Введите четвертый вариант ответа") @RequestParam String ans4,
+                    @Parameter(description = "Если ответ 4 правильный, укажите true, иначе false") @RequestParam Boolean ans4Bool)
+    {questionService.edit(id, question, ans1, ans1Bool, ans2, ans2Bool, ans3, ans3Bool, ans4, ans4Bool);}
 }

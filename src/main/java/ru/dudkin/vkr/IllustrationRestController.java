@@ -35,4 +35,11 @@ public class IllustrationRestController {
     @GetMapping("/")
     @Operation(summary = "этот метод выводит список всех строк содержащихся в таблице Illustration которые хранятся в базе данных")
     public List<Illustration> get(){return illustrationService.getList();}
+
+    @PutMapping("/")
+    @Operation(summary = "этот метод редактирует объект (Illustration) в БД, нужно указать ссылку и привязку к разделу")
+    public void edit(@Parameter(description = "укажите Id строки, по которому нужно внести изменения") @RequestParam long id,
+                    @Parameter(description = "Введите ссылку которую необходимо сохранить") @RequestParam String link,
+                    @Parameter(description = "Укажите к какому разделу принадлежит данная ссылка") @RequestParam String linkRefer)
+    {illustrationService.edit(id,link, linkRefer);}
 }
