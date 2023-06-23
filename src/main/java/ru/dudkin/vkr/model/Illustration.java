@@ -4,16 +4,16 @@ package ru.dudkin.vkr.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Illustration")
+@Table(name = " Illustration")
 public class Illustration {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "Link", columnDefinition = "TEXT")
+    @Column(name = "link", columnDefinition = "TEXT")
     private String link;
 
-    @Column(name = "Subtitle_Text_Refer")
+    @Column(name = "subtitle_Text_Refer")
     private String subtitleTextRefer;
 
     public Illustration() {

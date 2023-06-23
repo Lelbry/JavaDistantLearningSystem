@@ -24,7 +24,7 @@ public class IllustrationRestController {
     @PostMapping("/")
     @Operation(summary = "этот метод добавляет объект (Illustration) в БД, нужно указать ссылку и привязку к разделу")
     public void add(@Parameter(description = "Введите ссылку которую необходимо сохранить") @RequestParam String link,
-                    @Parameter(description = "Укажите к какому разделу принадлежит данная ссылка") @RequestParam String linkRefer)
+                           @Parameter(description = "Укажите к какому разделу принадлежит данная ссылка") @RequestParam String linkRefer)
     {illustrationService.add(link, linkRefer);}
 
     @DeleteMapping("/")
